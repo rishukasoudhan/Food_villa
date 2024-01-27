@@ -8,6 +8,7 @@ import Error from "./Components/Error";
 import Contact from "./Components/Contact";
 import RestrauntMenu from "./Components/RestrauntMenu";
 import { createBrowserRouter ,RouterProvider, Outlet} from "react-router-dom";
+import Profile from "./Components/Profile";
 
 
 /* My Food App structure will look like this, 
@@ -51,12 +52,19 @@ const appRouter=createBrowserRouter([
         },
         {
           path:'/about',
-          element:<About/> 
+          element:<About/>,
+          children :[
+            {
+              path:"profile",
+              element:<Profile/>
+            }
+          ]
         },
         {
           path:'/contact',
           element:<Contact/> 
-        },{
+        },
+        {
           path:'/restaurant/:id',
           element:<RestrauntMenu/>,
         }
